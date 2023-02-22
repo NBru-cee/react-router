@@ -29,7 +29,7 @@ body {
 .App {
   width: 100%;
   max-width: 800px;
-  height: 100vh;
+ height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -196,7 +196,6 @@ body {
   border: none;
   color: antiquewhite;
   font-weight: 500;
-
   height: 48px;
   min-width: 48px;
   border-radius: 10px;
