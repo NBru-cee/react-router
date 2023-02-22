@@ -6,46 +6,69 @@ import Home from "./Home";
 import NewPost from "./NewPost";
 import PostPage from "./PostPage";
 import Missing from "./Missing";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { format } from "date-fns";
 function App() {
     const [search, setSearch] = useState("");
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            title: "My First Post",
-            datetime: "July 01, 2023 11:17:36 AM",
-            body: "Important People come and go, and okay",
-        },
-        {
-            id: 2,
-            title: "My Second Post",
-            datatime: "July 01, 2023 11:17:36 AM",
-            body: "Unfortunately, the most important people in your life can become strangers overnight",
-        },
-        {
-            id: 3,
-            title: "My 3rd Post",
-            datatime: "July 01, 2023 11:17:36 AM",
-            body: "I try to differentiate an intelligent person from one that simply has common sense",
-        },
-        {
-            id: 4,
-            title: "My 3rd Post",
-            datatime: "July 01, 2023 11:17:36 AM",
-            body: "As the question doesn't contain the parenthesis so we can assume two conditions",
-        },
-    ]);
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        const filteredResults = posts.filter(
+            (post) =>
+                post.body.toLowerCase().includes(search.toLowerCase()) ||
+                post.title.toLowerCase().includes(search.toLowerCase())
+        );
+        setSearchResult(filteredResults);
+    }, [posts, search]);
+
+    const [postTitle, setPostTitle] = useState("");
+    const [postBody, setPostBody] = useState("");
+    const navigate = useNavigate();
     const [searchResult, setSearchResult] = useState([]);
+
+    const handleDelete = (id) => {
+        const postList = posts.filter((post) => post.id !== id);
+        setPosts(postList);
+        navigate("/");
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
+        const datetime = format(new Date(), "MMMM dd, yyyy pp");
+        const newPost = { id, title: postTitle, datetime, body: postBody };
+        const allPosts = [...posts, newPost];
+        setPosts(allPosts);
+        setPostTitle("");
+        setPostBody("");
+        // navigate("/");
+    };
+
     return (
         <div className="App">
             <Header title="React js Blog" />
             <Nav search={search} setSearch={setSearch} />
             <Routes>
-                <Route exact path="/" element={<Home posts={posts} />} />
-                <Route exact path="/post" element={<NewPost />} />
-                <Route path="/post/:id" element={<PostPage />} />
+                <Route exact path="/" element={<Home posts={searchResult} />} />
+                <Route
+                    exact
+                    path="/post"
+                    element={
+                        <NewPost
+                            handleSubmit={handleSubmit}
+                            setPostBody={setPostBody}
+                            postBody={postBody}
+                            postTitle={postTitle}
+                            setPostTitle={setPostTitle}
+                        />
+                    }
+                />
+                <Route
+                    path="/post/:id"
+                    element={
+                        <PostPage posts={posts} handleDelete={handleDelete} />
+                    }
+                />
                 <Route path="/about" element={<About />} />
                 <Route path="*" element={<Missing />} />
             </Routes>

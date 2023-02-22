@@ -191,7 +191,12 @@ body {
 }
 
 .newPostForm button {
-  margin-top: 1rem;
+  margin: 0.3em 0;
+  background-color: #52b6cf;
+  border: none;
+  color: antiquewhite;
+  font-weight: 500;
+
   height: 48px;
   min-width: 48px;
   border-radius: 10px;
