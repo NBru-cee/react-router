@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,8 +28,8 @@ body {
 
 .App {
   width: 100%;
+  min-height: 100vh;
   max-width: 800px;
- height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -45,6 +45,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-grow: 1;
 }
 
 .Header h1 {
@@ -191,7 +192,7 @@ body {
 }
 
 .newPostForm button {
-  margin: 0.3em 0;
+  margin: 0.5em 0;
   background-color: #52b6cf;
   border: none;
   color: antiquewhite;
@@ -203,9 +204,8 @@ body {
   font-size: 1rem;
   cursor: pointer;
 }
-
-.Missing h2, .PostPage h2, 
-.Missing p, .PostPage p {
+ 
+.Missing p, .PostPage p, .NewPost p {
   margin-bottom: 1rem;
 }
 
@@ -215,9 +215,17 @@ body {
   border-radius: 0.25rem;
   padding: 0.5rem;
   font-size: 1rem;
-  background-color: red;
   color: #fff;
   cursor: pointer;
+}
+
+.deleteButton{
+   background-color: red;
+   margin-left: 1em;
+}
+
+.editButton{
+  background-color: #333;
 }
 
 .statusMsg {
@@ -262,7 +270,7 @@ body {
   }
 
   .newPostForm textarea {
-    height: 300px;
+    height: 200px;
   }
 }
 

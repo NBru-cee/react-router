@@ -1,23 +1,47 @@
-import { useEffect } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-const EditPost = ({
-    posts,
-    handleEdit,
-    editTitle,
-    editBody,
-    setEditTitle,
-    setEditBody,
-}) => {
+import DataContext from "./context/DataContext";
+import api from "./api/post";
+import format from "date-fns/format";
+import { useNavigate } from "react-router-dom";
+const EditPost = () => {
+    const { posts, setPosts } = useContext(DataContext);
     const { id } = useParams();
-    const post = posts.find((post) => post.id.toString === id);
+    const post = posts.find((post) => post.id.toString() === id);
+    const [editTitle, setEditTitle] = useState("");
+    const [editBody, setEditBody] = useState("");
+    const navigate = useNavigate();
     useEffect(() => {
         if (post) {
             setEditTitle(post.title);
             setEditBody(post.body);
         }
     }, [post, setEditBody, setEditTitle]);
+
+    const handleEdit = async (id) => {
+        const datatime = format(new Date(), "MMMM dd, yyyy pp");
+        const updatedPost = {
+            id,
+            title: editTitle,
+            datatime,
+            body: editBody,
+        };
+        try {
+            const response = await api.put(`/edit/${id}`, updatedPost);
+            setPosts(
+                posts.map((post) =>
+                    post.id === id ? { ...response.data } : post
+                )
+            );
+            setEditBody("");
+            setEditTitle("");
+            navigate("/");
+        } catch (err) {
+            console.log(`Error: ${err.message}`);
+        }
+    };
     return (
-        <main className="newPost">
+        <main className="NewPost">
             {editTitle && (
                 <>
                     <h2>Edit Post</h2>
@@ -43,7 +67,7 @@ const EditPost = ({
                             type="submit"
                             onClick={() => handleEdit(post.id)}
                         >
-                            Submit
+                            Edit
                         </button>
                     </form>
                 </>

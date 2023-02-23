@@ -1,34 +1,22 @@
 {
-      "posts": [
-          {
-              "id": 1,
-              "title": "My First Post",
-              "datetime": "July 01, 2023 11:17:36 AM",
-              "body": "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies."
-          },
-          {
-              "id": 2,
-              "title": "My Second Post",
-              "datatime": "July 01, 2023 11:17:36 AM",
-              "body": "The React. js framework is an open-source JavaScript framework and library developed by Facebook. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript."
-          },
-          {
-              "id": 3,
-              "title": "My 3rd Post",
-              "datatime": "July 01, 2023 11:17:36 AM",
-              "body": "As a structural framework, Angular helps develop dynamic web applications, whereas React permits you to develop UI components because it's a JavaScript library. Similarly, Angular is based on Model-View-Controller (MVC) with TypeScript, while React is entirely based on Virtual DOM with JavaScript."
-          },
-          {
-              "id": 4,
-              "title": "My 4thPost",
-              "datatime": "July 01, 2023 11:17:36 AM",
-              "body": "According to the statistics provided by Statista, among the most used JavaScript frameworks, libraries, and tools by developers worldwide, Angular encompasses 22.96% of the Market. While react. js leads at 40.14% which is gradually climbing in terms of popularity and usability."
-          },
-          {
-              "id": 5,
-              "title": "My 5thPost",
-              "datatime": "July 01, 2023 11:17:36 AM",
-              "body": "Angular is mostly used to build complex enterprise-grade apps like single-page apps and progressive web apps, while React is used to build UI components in any app with frequently variable data. Angular's learning curve is steeper due to its too many in-built functionalities while React's smaller package size."
-          }
-      ]
+  "posts": [
+    {
+      "id": 5,
+      "title": "third post",
+      "datatime": "February 23, 2023 5:57:44 PM",
+      "body": "a post that describes the codes that are being learnt in the tutorial mentioned above in the second post is here for no reason just to fill the space"
+    },
+    {
+      "id": 6,
+      "title": "Fourth post",
+      "datatime": "February 23, 2023 5:58:54 PM",
+      "body": "The fourth post is just for the fire  fox browser that I'm using to run my codes up here locally in my computer\n"
+    },
+    {
+      "id": 7,
+      "title": "new post",
+      "datatime": "February 23, 2023 11:06:14 PM",
+      "body": "This is a new post about the react blgog post in my visula studio code"
+    }
+  ]
 }
