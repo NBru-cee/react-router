@@ -1,8 +1,23 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import DataContext from "./context/DataContext";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import { useEffect } from "react";
 const Nav = () => {
-    const { search, setSearch } = useContext(DataContext);
+    const posts = useStoreState((state) => state.posts);
+    const setSearchResult = useStoreActions(
+        (actions) => actions.setSearchResult
+    );
+    const search = useStoreState((state) => state.search);
+    const setSearch = useStoreActions((actions) => actions.setSearch);
+
+    useEffect(() => {
+        const filteredResults = posts.filter(
+            (post) =>
+                post.body.toLowerCase().includes(search.toLowerCase()) ||
+                post.title.toLowerCase().includes(search.toLowerCase())
+        );
+        setSearchResult(filteredResults);
+    }, [posts, search, setSearchResult]);
+
     return (
         <nav className="Nav">
             <form className="searchForm" onSubmit={(e) => e.preventDefault()}>

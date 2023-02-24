@@ -6,7 +6,7 @@ export default createStore({
         state.posts = payload;
     }),
     postTitle: "",
-    setPostTitle: action((action, payload) => {
+    setPostTitle: action((state, payload) => {
         state.postTitle = payload;
     }),
     postBody: "",
@@ -30,9 +30,13 @@ export default createStore({
         state.searchResult = payload;
     }),
     postCount: computed((state) => state.posts.length),
-    setPostById: computed((state) => {
-        return (id = state.posts.find(post.id.toString() === id));
+    setPostById: computed((state) => (id) => {
+        return state.posts.find((post) => post.id.toString() === id);
     }),
+    getPostById: computed((state) => (id) => {
+        return state.posts.find((post) => post.id.toString() === id);
+    }),
+
     savePost: thunk(async (actions, newPost, helpers) => {
         const { posts } = helpers.getState();
         try {
@@ -46,6 +50,7 @@ export default createStore({
     }),
     deletePost: thunk(async (actions, id, helpers) => {
         const { posts } = helpers.getState();
+
         try {
             await api.delete(`/posts/${id}`);
 
@@ -55,10 +60,12 @@ export default createStore({
         }
     }),
 
-    editPost: thunk(async (actions, updatedPost, helpers) => {
+    editPost: thunk(async (actions, { updatedPost, id }, helpers) => {
         const { posts } = helpers.getState();
+
         try {
             const response = await api.put(`/edit/${id}`, updatedPost);
+
             actions.setPosts(
                 posts.map((post) =>
                     post.id === id ? { ...response.data } : post
