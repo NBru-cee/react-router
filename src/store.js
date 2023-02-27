@@ -30,7 +30,7 @@ export default createStore({
         state.searchResult = payload;
     }),
     postCount: computed((state) => state.posts.length),
-    getPostById: computed((state) => (id) => {
+    getPostById: computed((state) => {
         return id => state.posts.find((post) => post.id.toString() === id);
     }),
   
@@ -65,7 +65,7 @@ export default createStore({
         const { posts } = helpers.getState();
         const { id } = updatedPost;
         try {
-            const response = await api.put(`/edit/${id}`, updatedPost);
+            const response = await api.put(`/posts/${id}`, updatedPost);
 
             actions.setPosts(
                 posts.map((post) =>

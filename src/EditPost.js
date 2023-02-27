@@ -8,12 +8,11 @@ const EditPost = () => {
 
     const editTitle = useStoreState((state) => state.editTitle);
     const editBody = useStoreState((state) => state.editBody);
-    const editPost = useStoreState((state) => state.editPost);
+    const editPost = useStoreActions((actions) => actions.editPost);
 
     const setEditTitle = useStoreActions((actions) => actions.setEditTitle);
     const setEditBody = useStoreActions((actions) => actions.setEditBody);
-
-    const getPostById = useStoreActions((actions) => actions.getPostById);
+    const getPostById = useStoreState((state) => state.getPostById);
     const post = getPostById(id);
 
     useEffect(() => {
@@ -62,7 +61,7 @@ const EditPost = () => {
                             type="button"
                             onClick={() => handleEdit(post.id)}
                         >
-                            Edit
+                            Save
                         </button>
                     </form>
                 </>

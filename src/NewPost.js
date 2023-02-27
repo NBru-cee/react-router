@@ -31,6 +31,7 @@ const NewPost = () => {
                     type="text"
                     id="postTitle"
                     required
+                    autoFocus
                     value={postTitle}
                     onChange={(e) => setPostTitle(e.target.value)}
                 />
