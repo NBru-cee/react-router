@@ -30,12 +30,10 @@ export default createStore({
         state.searchResult = payload;
     }),
     postCount: computed((state) => state.posts.length),
-    setPostById: computed((state) => (id) => {
-        return state.posts.find((post) => post.id.toString() === id);
-    }),
     getPostById: computed((state) => (id) => {
-        return state.posts.find((post) => post.id.toString() === id);
+        return id => state.posts.find((post) => post.id.toString() === id);
     }),
+  
 
     savePost: thunk(async (actions, newPost, helpers) => {
         const { posts } = helpers.getState();
@@ -48,21 +46,24 @@ export default createStore({
             console.log(`Error: ${err.message}`);
         }
     }),
+
+
     deletePost: thunk(async (actions, id, helpers) => {
         const { posts } = helpers.getState();
 
         try {
             await api.delete(`/posts/${id}`);
 
-            actions.setPosts(posts.filter((post) => post.id.toString() !== id));
+            actions.setPosts(posts.filter((post) => post.id !== id));
         } catch (err) {
             console.log(`Error: ${err.message}`);
         }
     }),
 
-    editPost: thunk(async (actions, { updatedPost, id }, helpers) => {
+    
+    editPost: thunk(async (actions, updatedPost, helpers) => {
         const { posts } = helpers.getState();
-
+        const { id } = updatedPost;
         try {
             const response = await api.put(`/edit/${id}`, updatedPost);
 

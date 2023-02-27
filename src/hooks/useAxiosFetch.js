@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+
 const useAxiosFetch = (dataUrl) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -7,6 +8,7 @@ const useAxiosFetch = (dataUrl) => {
     useEffect(() => {
         let isMounted = true;
         const source = axios.CancelToken.source();
+
         const fetchData = async (url) => {
             setIsLoading(true);
             try {
@@ -23,12 +25,12 @@ const useAxiosFetch = (dataUrl) => {
                     setData([]);
                 }
             } finally {
-                isMounted && setTimeout(() => setIsLoading(false), 1000);
+                isMounted && setIsLoading(false);
             }
         };
         fetchData(dataUrl);
         const cleanUp = () => {
-            console.log(" clean up function");
+            
             isMounted = false;
             source.cancel();
         };

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { useEffect } from "react";
+
 const Nav = () => {
     const posts = useStoreState((state) => state.posts);
     const setSearchResult = useStoreActions(

@@ -1,16 +1,21 @@
-import { useEffect, useContext, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import DataContext from "./context/DataContext";
-import api from "./api/post";
+import { useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import format from "date-fns/format";
-import { useNavigate } from "react-router-dom";
+import { useStoreActions, useStoreState } from "easy-peasy";
 const EditPost = () => {
-    const { posts, setPosts } = useContext(DataContext);
-    const { id } = useParams();
-    const post = posts.find((post) => post.id.toString() === id);
-    const [editTitle, setEditTitle] = useState("");
-    const [editBody, setEditBody] = useState("");
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    const editTitle = useStoreState((state) => state.editTitle);
+    const editBody = useStoreState((state) => state.editBody);
+    const editPost = useStoreState((state) => state.editPost);
+
+    const setEditTitle = useStoreActions((actions) => actions.setEditTitle);
+    const setEditBody = useStoreActions((actions) => actions.setEditBody);
+
+    const getPostById = useStoreActions((actions) => actions.getPostById);
+    const post = getPostById(id);
+
     useEffect(() => {
         if (post) {
             setEditTitle(post.title);
@@ -18,7 +23,7 @@ const EditPost = () => {
         }
     }, [post, setEditBody, setEditTitle]);
 
-    const handleEdit = async (id) => {
+    const handleEdit = (id) => {
         const datatime = format(new Date(), "MMMM dd, yyyy pp");
         const updatedPost = {
             id,
@@ -26,20 +31,10 @@ const EditPost = () => {
             datatime,
             body: editBody,
         };
-        try {
-            const response = await api.put(`/edit/${id}`, updatedPost);
-            setPosts(
-                posts.map((post) =>
-                    post.id === id ? { ...response.data } : post
-                )
-            );
-            setEditBody("");
-            setEditTitle("");
-            navigate("/");
-        } catch (err) {
-            console.log(`Error: ${err.message}`);
-        }
+        editPost(updatedPost);
+        navigate(`/post/${id}`);
     };
+
     return (
         <main className="NewPost">
             {editTitle && (
@@ -64,7 +59,7 @@ const EditPost = () => {
                             onChange={(e) => setEditBody(e.target.value)}
                         ></textarea>
                         <button
-                            type="submit"
+                            type="button"
                             onClick={() => handleEdit(post.id)}
                         >
                             Edit

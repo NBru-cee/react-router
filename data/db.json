@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": 5,
-      "title": "third post",
-      "datatime": "February 23, 2023 5:57:44 PM",
-      "body": "a post that describes the codes that are being learnt in the tutorial mentioned above in the second post is here for no reason just to fill the space"
-    },
-    {
       "id": 6,
       "title": "Second post ",
       "datatime": "February 24, 2023 10:14:03 AM",
@@ -17,6 +11,18 @@
       "title": "My 2nd post",
       "datatime": "February 24, 2023 10:14:18 AM",
       "body": "GHGFTASTAASHGRSDBNEJYHDruyjmjhsdfjhserdfhngfjyndf"
+    },
+    {
+      "id": 8,
+      "title": "My 6th post",
+      "datatime": "February 24, 2023 2:00:26 PM",
+      "body": "we have almost 6 blocks and now we're remaining with two blog posts"
+    },
+    {
+      "id": 9,
+      "title": "What is react",
+      "datatime": "February 26, 2023 7:04:30 PM",
+      "body": "sadlkfjalksdcmnlkdfmlzkvalkzcnvlakdlklkxfnvlkjfdlk"
     }
   ]
 }
