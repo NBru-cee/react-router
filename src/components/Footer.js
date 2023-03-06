@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="Footer">
             <p style={{ textAlign: "center" }}>{postCount} Blog Posts</p>
-            <p>Copyright &copy; {today.getFullYear()} React Inc.</p>
+            <p>Copyright &copy; {today.getFullYear()} Bruce Inc.</p>
         </footer>
     );
 };

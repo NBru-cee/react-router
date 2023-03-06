@@ -1,70 +1,64 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "First post ",
-      "datatime": "March 03, 2023 8:25:00 AM",
-      "body": "Let's use this post for making a clear introduction to our react blog project.\nThis is my first chat blog"
-    },
-    {
-      "id": 4,
-      "title": "Second post ",
-      "datatime": "February 27, 2023 10:08:15 AM",
-      "body": "While in ionized gas, ionic solution the moving charges may include electrons and positively charged ions."
-    },
-    {
-      "id": 5,
-      "title": "Third post",
-      "datatime": "February 27, 2023 11:25:29 AM",
-      "body": "This is a post with no explicit meaning. Created for fun"
-    },
-    {
-      "id": 11,
-      "title": "Fourth post",
-      "datatime": "February 27, 2023 11:54:14 AM",
-      "body": "The JSON Web Token(JWT) is one method for allowing authentication without actually storing any information about the user on the system itself"
-    },
-    {
-      "id": 12,
-      "title": "Fifth post ",
-      "datatime": "February 27, 2023 11:58:55 AM",
-      "body": " JWTs are credentials, which can grant access to resources. Be careful where you paste them! We do not record tokens, all validation and debugging is done on the client side."
-    },
-    {
-      "id": 13,
-      "title": "Sixth post",
-      "datatime": "February 27, 2023 12:01:04 PM",
-      "body": "JWT.io is able to securely implement authentication with JWTs using Auth0 on any stack and any device in less than 10 minutes."
-    },
-    {
-      "id": 14,
-      "title": "Seventh post",
-      "datatime": "February 27, 2023 12:01:42 PM",
-      "body": "In literary theory, a text is any object that can be \"read\", whether this object is a work of literature, a street sign, an arrangement of buildings on a city block, or styles of clothing. It is a coherent set of signs that transmits some kind of informative message."
-    },
-    {
-      "id": 15,
-      "title": "Eighth post",
-      "datatime": "February 27, 2023 12:12:02 PM",
-      "body": "Text refers to the actual words written in a book, newspaper, blog post, or any other written work. Pictures, charts, and other images are not text. When you read something, you are looking at text and using your language skills to get meaning out of it. Something that doesn't contain any text is textless."
-    },
-    {
-      "id": 16,
-      "title": "Ninth post",
-      "datatime": "February 27, 2023 12:12:58 PM",
-      "body": "A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box. In the humanities, different fields of study concern themselves with different forms of texts."
-    },
-    {
-      "id": 17,
-      "title": "Tenth post",
-      "datatime": "February 27, 2023 12:13:50 PM",
-      "body": "Amazing, like incredible, awesome, and fabulous, is used so often to describe things that are just really good, you sometimes forget that its real meaning is reserved for things that are especially remarkable."
-    },
-    {
-      "id": 18,
-      "title": "Eleventh post",
-      "datatime": "March 03, 2023 8:29:12 AM",
-      "body": "A JavaScript build toolchain typically consists of:\n\nA package manager, such as Yarn or npm. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.\nA bundler, such as webpack or Parcel. It lets you write modular code and bundle it together into small packages to optimize load time.\nA compiler such as Babel. It lets you write modern JavaScript code that still works in older browsers."
-    }
-  ]
+    "posts": [
+        {
+            "id": 4,
+            "title": "Fourth post",
+            "datatime": "February 27, 2023 11:54:14 AM",
+            "body": "The JSON Web Token(JWT) is one method for allowing authentication without actually storing any information about the user on the system itself"
+        },
+        {
+            "id": 5,
+            "title": "Fifth post ",
+            "datatime": "February 27, 2023 11:58:55 AM",
+            "body": " JWTs are credentials, which can grant access to resources. Be careful where you paste them! We do not record tokens, all validation and debugging is done on the client side."
+        },
+        {
+            "id": 6,
+            "title": "Sixth post",
+            "datatime": "February 27, 2023 12:01:04 PM",
+            "body": "JWT.io is able to securely implement authentication with JWTs using Auth0 on any stack and any device in less than 10 minutes."
+        },
+        {
+            "id": 7,
+            "title": "Seventh post",
+            "datatime": "February 27, 2023 12:01:42 PM",
+            "body": "In literary theory, a text is any object that can be read, whether this object is a work of literature, a street sign, an arrangement of buildings on a city block, or styles of clothing. It is a coherent set of signs that transmits some kind of informative message."
+        },
+        {
+            "id": 8,
+            "title": "Eighth post",
+            "datatime": "February 27, 2023 12:12:02 PM",
+            "body": "Text refers to the actual words written in a book, newspaper, blog post, or any other written work. Pictures, charts, and other images are not text. When you read something, you are looking at text and using your language skills to get meaning out of it. Something that doesn't contain any text is textless."
+        },
+        {
+            "id": 9,
+            "title": "Ninth post",
+            "datatime": "February 27, 2023 12:12:58 PM",
+            "body": "A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box. In the humanities, different fields of study concern themselves with different forms of texts."
+        },
+        {
+            "id": 10,
+            "title": "Tenth post",
+            "datatime": "February 27, 2023 12:13:50 PM",
+            "body": "Amazing, like incredible, awesome, and fabulous, is used so often to describe things that are just really good, you sometimes forget that its real meaning is reserved for things that are especially remarkable."
+        },
+        {
+            "id": 11,
+            "title": "Eleventh post",
+            "datatime": "March 03, 2023 8:29:12 AM",
+            "body": "A JavaScript build toolchain typically consists of:A package manager, such as Yarn or npm. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.\nA bundler, such as webpack or Parcel. It lets you write modular code and bundle it together into small packages to optimize load time.A compiler such as Babel. It lets you write modern JavaScript code that still works in older browsers."
+        },
+        {
+            "id": 2,
+            "title": "Second post",
+            "datatime": "March 6, 2023 12: 06 26 PM",
+            "body": "Adding a new post to out react blog app project"
+        },
+        {
+            "id": 1,
+            "title": "First post",
+            "datatime": "March 6, 2023 12: 06 26 PM",
+            "body": "Using postman here to create a new post to out react blog app project"
+        }
+    ]
 }

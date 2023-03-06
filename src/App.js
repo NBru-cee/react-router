@@ -22,7 +22,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header title="React js Blog" />
+            <Header title="Bruce Inc." />
             <Nav />
             <Routes>
                 <Route
