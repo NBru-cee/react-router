@@ -6,7 +6,10 @@ const Home = ({ isLoading, fetchError }) => {
         <main className="Home">
             {isLoading && <p className="statusMsg">Loading posts....</p>}
             {!isLoading && fetchError && (
-                <p className="statusMsg" style={{ color: "red" }}>
+                <p
+                    className="statusMsg"
+                    style={{ color: "red", fontSize: "2em" }}
+                >
                     {fetchError}
                 </p>
             )}
